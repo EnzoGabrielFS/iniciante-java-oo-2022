@@ -2,13 +2,13 @@ package model;
 
 import java.util.Random;
 
-public class Candidato extends Pessoa {
+public class Candidatos extends Pessoa {
 
-	public Candidato(String nome) {
+	public Candidatos(String nome) {
 		super(nome);
 	}
 	
-	public boolean apresentaCandidatura() {
+	public boolean apresentaCandidaturas() {
 		return new Random().nextBoolean();
 	}
 
