@@ -3,31 +3,31 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import modelo.Aprendiz;
-import modelo.DadosAleatorios;
-import modelo.Mentor;
-import modelo.MentorLider;
-import modelo.Modulo;
-import modelo.ProcessoSeletivo;
-import modelo.Recrutador;
-import modelo.Turma;
+import model.Aprendiz;
+import model.DadosAleatorios;
+import model.Mentor;
+import model.MentorLider;
+import model.Modulo;
+import model.ProcessoSeletivo;
+import model.Recrutador;
+import model.Turma;
 
 public class IniciaMovimentoDaCodar {
 
 	public static void main(String[] args) throws ParseException {
 
-		Recrutador recrutadoraHelena = new Recrutador("Helena");
+		Recrutador recrutadoraJessica = new Recrutador("Jessica Cestaro");
 		MentorLider lider = new MentorLider("Vinicius Ueda", DadosAleatorios.conhecimentoDeTodosOsModulos());
 		List<Mentor> mentores = DadosAleatorios.geraMentores();
 		mentores.add(lider);
 		
-		ProcessoSeletivo processoSeletivo = new ProcessoSeletivo(recrutadoraHelena, DadosAleatorios.geraListaCandidatos());
+		ProcessoSeletivo processoSeletivo = new ProcessoSeletivo(recrutadoraJessica, DadosAleatorios.geraListaCandidatos());
 		processoSeletivo.agendamentoDasEntrevistas();
 		processoSeletivo.realizaAsEntrevistas();
 
 		Turma turma = new Turma(lider, processoSeletivo.getRecrutador().getAprendizes());
 		turma.setMentores(mentores);
-		turma.setRecrutadores(recrutadoraHelena);
+		turma.setRecrutadores(recrutadoraJessica);
 		
 		for (Modulo modulo : lider.getModulos()) {
 			lider.passaOProximoModulo(turma);
